@@ -229,8 +229,8 @@ set hlsearch
 syntax enable
 syntax on
 " 使用ctrlc, v就可以实现vim之间的复制粘贴
-vnoremap <C-c> :w! ~/tmp/clipboard.txt <CR>
-inoremap <C-v> <Esc>:r ~/tmp/clipboard.txt <CR>
+""vnoremap <D-c> :w! tmp/clipboard.txt <CR>
+""inoremap <D-v> <Esc>:r tmp/clipboard.txt <CR>
 " 编译快捷键
 autocmd filetype python nnoremap <F1> :w <bar> exec '!python '.shellescape('%')<CR> autocmd filetype c nnoremap <F1> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <F1> :w <bar> exec '!g++ --std=c++11 -pthread '.shellescape('%').' -o ./bin/'.shellescape('%:r').' && ./bin/'.shellescape('%:r')<CR>
@@ -313,7 +313,7 @@ endfunc
 " Hello，我是PowerVim的作者，程序员Carl，欢迎关注我的微信公众号：代码随想录 
 
 " 使用的背景主题
-colorscheme Monokai_Gavin
+colorscheme solarized
 " 添加自动补全字典
 au FileType php setlocal dict+=~/.vim/dictionary/php_keywords_list.txt
 au FileType cpp setlocal dict+=~/.vim/dictionary/cpp_keywords_list.txt
@@ -436,3 +436,6 @@ function! GenMarkdownSectionNum()
   " echo lvl sect out
   echo out
 endfunc
+
+let g:pydiction_location = '.vim/bundle/pydiction/complete-dict'
+let g:pydiction_menu_height = 3
